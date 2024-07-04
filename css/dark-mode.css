@@ -1,0 +1,18 @@
+body:has(.mode input:not(:checked)) .mode .dark {
+    display: none;
+}
+
+body:has(.mode input:checked) .mode .light {
+    display: none;
+}
+
+:root:has(.mode input:checked) {
+    --body-color: #212529;
+    --sidbar-color: #101015;
+    --primary-color: #695cfe;
+    --primary-color-light: #f6f5ff;
+    --toggle-color: #ddd;
+    --text-color: #707070;
+    --title-color: #fff;
+    --inp-color: #343A40;
+}

@@ -1,0 +1,231 @@
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+
+:root {
+
+    /*_____________colors__________   */
+
+    --body-color: #e4e9f7;
+    --sidbar-color: #fff;
+    --primary-color: #695cfe;
+    --primary-color-light: #f6f5ff;
+    --toggle-color: #ddd;
+    --text-color: #707070;
+    --title-color: #0d0c22;
+    --inp-color: #fff;
+
+    /*__________transition___________*/
+
+    --tran-03: all 0.2s ease;
+    --tran-03: all 0.3s ease;
+    --tran-03: all 0.4s ease;
+    --tran-03: all 0.5s ease;
+
+}
+
+body {
+    background-color: var(--body-color);
+}
+
+body:not(body:has(:target)) .dashboard {
+    background-color: var(--primary-color);
+}
+
+body:not(body:has(:target)) .dashboard-icon {
+    color: var(--primary-color-light);
+}
+
+body:not(body:has(:target)) .dashboard-link {
+    color: var(--primary-color-light);
+}
+
+
+#sectionContainer {
+    transition: all 1s ease-in-out;
+}
+
+.sidebar {
+    background-color: var(--sidbar-color);
+    width: 15.625rem;
+    transition: all 0.3s ease-out;
+}
+
+.sidbar-content {
+    position: relative;
+}
+
+.sidbar-content::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #707070;
+    width: 100%;
+    height: 1px;
+}
+
+.sidbar-content .labels .search {
+    margin-left: 2.625rem;
+}
+
+.title-icon,
+.name,
+.search-inp {
+    color: var(--title-color);
+}
+
+.btn-arrow-left,
+.btn-arrow-right {
+    position: absolute;
+    top: 1px;
+    right: -15px;
+    width: 30px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-arrow-right {
+    top: 40px;
+}
+
+.search-inp {
+    font-size: 0.875rem;
+}
+
+.labels {
+    height: 60px;
+    border-radius: 30px;
+    transition: all 0.4s ease-in-out;
+
+}
+
+.labels-bg:hover {
+    background-color: var(--primary-color);
+}
+
+.labels-bg:hover .labels-icons,
+.labels-bg:hover .labels-link a {
+    color: var(--primary-color-light);
+}
+
+.labels-icons,
+.labels-link a {
+    color: var(--text-color);
+    transition: all 0.4s ease-in-out;
+}
+
+.labels-inp {
+    margin-left: 2.1875rem;
+}
+
+.labels-inp input:focus {
+    outline: none;
+}
+
+.section-content .page-title i {
+    color: var(--primary-color);
+}
+
+.section-content .page-title h1 {
+    color: var(--text-color);
+    transition: all 1s linear;
+}
+
+
+.website-main-page {
+    padding-top: 7.5rem;
+}
+
+.website-main-page .inp-icon i {
+    color: var(--title-color);
+    transition: all 1s linear;
+
+}
+
+.website-main-page .inp-content {
+    width: 100%;
+}
+
+.form-control {
+    background-color: var(--inp-color);
+    color: var(--title-color);
+    border: 2px solid var(--text-color);
+    transition: all 1s linear;
+}
+
+.form-control:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #695cfea4;
+    background-color: var(--inp-color);
+    color: var(--title-color);
+}
+
+.btn-parent .submit-btn {
+    background-color: var(--primary-color);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-parent .submit-btn:hover {
+    background-color: #8178de;
+}
+
+.card-books {
+    background-color: var(--sidbar-color);
+}
+
+.card-books .number span {
+    background-color: var(--primary-color);
+    padding-left: 0.9375rem;
+    padding-right: 0.9375rem;
+    color: white;
+}
+
+.card-books .nameOfTheBook h6 {
+    color: var(--title-color);
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 35px;
+}
+
+.btns .btn a {
+    color: white;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.popup {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.overlay.open {
+    opacity: 1;
+    visibility: visible;
+}

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/dark-mode.css">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Bookmark HaZo</title>
+</head>
+
+<body class="vh-100">
+    <div class="overlay" id="overlay">
+        <div class="popup" id="popup">
+            <h2>Invalid Name or Url!</h2>
+            <p>Book Name's first letter Must Be capitalize at lesst and not more the 10 carachters , not less than 3</p>
+            <p>ex.Ahmed mamdouh</p>
+            <p>Matches one or more word characters, dots, or hyphens.
+                Matches a dot followed by two or more lowercase letters.
+            </p>
+            <p>ex.https://www.ahmedmamdouh.com</p>
+            <p class="fs-6 fw-light">Click outside the popup to close it.</p>
+        </div>
+    </div>
+    <nav id="sideBarMove" class="sidebar position-fixed top-0 start-0 vh-100 py-4">
+        <div class="container position-relative">
+            <button onclick="moveBack()" id="translateSideBar" class="btn-arrow-left"><i
+                    class="fa-solid fa-bars-staggered"></i></button>
+            <header class="mb-5">
+                <div class="icon-text">
+                    <span class="main-icon d-flex align-items-center justify-content-center">
+                        <i class="title-icon fa-solid fa-book me-2 fs-2"></i>
+                        <h1 id="title" class="name text-capitalize ms-2 fw-bold fs-5">Bookmark shop</h1>
+                    </span>
+                </div>
+            </header>
+            <div class="sidbar-content d-flex justify-content-center flex-column">
+                <div class="labels my-2">
+                    <div class="search d-flex justify-content-center">
+                        <div class="labels-icons py-2 " onclick="moveForword()">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </div>
+                        <div class="labels-inp">
+                            <input oninput="searchBooks(this.value)" id="searchBar" type="search"
+                                class="w-75 border-0 py-2 bg-transparent search-inp" placeholder="search...">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="labels dashboard labels-bg my-2 d-flex justify-content-center align-items-center ">
+                    <div class="labels-icons dashboard-icon ">
+                        <i class="fa-solid fa-home "></i>
+                    </div>
+                    <div class="labels-link ms-3 text-center" id="dashboard">
+                        <a href="#" class="dashboard-link text-decoration-none text-capitalize">dashboard</a>
+                    </div>
+                </div>
+                <div class="labels new-book labels-bg  my-2 d-flex justify-content-center align-items-center">
+                    <div class="labels-icons new-book-icon ms-1">
+                        <i class="fa-solid fa-plus pe-2"></i>
+                    </div>
+                    <div class="labels-link ms-3" id="newBook">
+                        <a href="#" class="new-book-link text-decoration-none text-capitalize">new book</a>
+                    </div>
+                </div>
+                <div class="labels categories labels-bg my-2 d-flex justify-content-center align-items-center">
+                    <div class="labels-icons">
+                        <i class="fa-solid fa-list"></i>
+                    </div>
+                    <div class="labels-link ms-3" id="categories">
+                        <a href="#" class="text-decoration-none text-capitalize">categories</a>
+                    </div>
+                </div>
+                <button onclick="moveForword()" id="NumberOfBooks" type="button"
+                    class="btn btn-primary position-relative mb-3">
+                    Number Of Books
+                    <span id="inboxBooks"
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+
+                        <span class="visually-hidden">unread messages</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="container mt-4">
+            <div class="mode form-check form-switch d-flex justify-content-center align-items-center">
+                <input class="form-check-input me-2" type="checkbox" role="switch" id="flexSwitchCheckDefault">
+                <div id="darkMood">
+                    <label class="dark form-check-label text-capitalize text-white fw-medium"
+                        for="flexSwitchCheckDefault">dark
+                        mode</label>
+                </div>
+                <div id="lightMood">
+                    <label id="lightMood" class="light form-check-label text-capitalize fw-medium"
+                        for="flexSwitchCheckDefault">light
+                        mode</label>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <section id="mainPage" class=" overflow-hidden w-100">
+        <div id="sectionContainer" class="container">
+            <div class="section-content  my-5 d-flex align-items-center justify-content-center">
+                <div class="page-title d-flex align-items-center justify-content-center">
+                    <i class="fa-solid fa-bookmark fs-3"></i>
+                    <h1 class="text-capitalize mx-3 text-center">Bookmark your favouraite sites</h1>
+                    <i class="fa-solid fa-bookmark fs-3"></i>
+                </div>
+            </div>
+            <div class="website-main-page">
+                <div class="web-content">
+                    <div class="web-inputs mb-3">
+                        <div class="inp-content w-100 d-flex justify-content-center align-items-center">
+                            <div class="inp-icon me-2">
+                                <i class="fa-solid fa-book fs-2"></i>
+                            </div>
+                            <div class="main-inp ms-2 w-50">
+                                <input id="inputBookMark" oninput="validateBookName(this.value)" type="search"
+                                    class="m-auto py-3 rounded-5  w-100 form-control" placeholder="Bookmark name" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="web-inputs mb-3">
+                        <div class="inp-content w-100 d-flex justify-content-center align-items-center">
+                            <div class="inp-icon me-2">
+                                <i class="fa-solid fa-link fs-3"></i>
+                            </div>
+                            <div class="main-inp ms-2 w-50">
+                                <input id="inputUrl" type="url"
+                                    class="m-auto py-3 rounded-5  w-100 form-control text-capitalize"
+                                    oninput="validateBookUrl(this.value)" placeholder="website URL" />
+                            </div>
+                        </div>
+                    </div>
+                    <div id="btnGroup" class="btn-parent w-100 d-flex justify-content-center align-items-center mt-3">
+                        <button id="submitBtn" onclick="addBook()"
+                            class="submit-btn text-white py-2 px-3 border-0 rounded-5">save your
+                            bookmark</button>
+                        <button id="updateBtn" onclick="updateBook()"
+                            class="submit-btn d-none bg-warning text-white py-2 px-3 border-0 rounded-5">update
+                            bookmark</button>
+
+                    </div>
+                </div>
+            </div>
+            <div id="resultBooks" class="row gy-3 mt-5">
+
+            </div>
+    </section>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
